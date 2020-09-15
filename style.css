@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+:root {
+	--primaryColor: #90caf9;
+	--secondaryColor: #bbdefb;
+	--bgColor: #eceff1;
+	--mainWhite: rgb(248, 247, 247);
+	--mainBlack: #222;
+	--mainGrey: #ececec;
+	--mainSpacing: 0.1rem;
+	--mainTransition: all 0.3s linear;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	color: var(--mainBlack);
+	background: var(--bgColor);
+	font-family: "Lato", sans-serif;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+/* --------------- Navbar ---------------- */
+.navbar {
+	position: sticky;
+	top: 0;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: #fff;
+	z-index: 1;
+}
+.links {
+	position: absolute;
+	top: 10rem;
+	left: -200%;
+	transition: all .6s linear;
+}
+.show {
+	transform: translateX(280%);
+}
+#navicon {
+	color: #22669e;
+}
+
+.navbar-center {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1.5rem;
+}
+.navbar-center img {
+	height: 60px;
+}
+.nav-icon {
+	font-size: 1.5rem;
+}
+.nav-icon:hover {
+	transform: rotate(30deg);
+	transition: all .3s linear;
+}
+.cart-btn {
+	position: relative;
+	cursor: pointer;
+}
+.cart-items {
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background: #1565c0;
+	padding: 0 5px;
+	border-radius: 30%;
+	color: var(--mainWhite);
+}
+.hero {
+	min-height: calc(100vh - 60px);
+	background: url("./images/hero-bg.png") center/cover no-repeat;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+.banner {
+	position: relative;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.5);
+	display: block;
+	padding: 2rem;
+	transition: var(--mainTransition);
+}
+.banner-title {
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 3rem;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+}
+
+a.banner-btn {
+	display: block;
+	width: 300px;
+	font-family: 'Vibes', cursive;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+	font-size: 2rem;
+	background: var(--primaryColor);
+	color: var(--mainBlack);
+	border: 1px solid var(--primaryColor);
+	transition: var(--mainTransition);
+	cursor: pointer;
+}
+.banner-btn:hover {
+	background: rgba(175, 242, 247, 0.8);
+	color: #185485;
+}
+/* --------------- End of Hero ---------------- */
+/* --------------- Products ---------------- */
+
+.products {
+	padding: 4rem 0;
+	text-align: center;
+	color: #37474f;
+	text-transform: capitalize;
+}
+.section-title h2 {
+	font-family: 'Vibes', cursive;
+	text-align: center;
+	font-size: 2.5rem;
+	margin-bottom: 5rem;
+	text-transform: capitalize;
+	letter-spacing: var(--mainSpacing);
+}
+.products-center {
+	width: 90vw;
+	margin: 0 auto;
+	max-width: 1170px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 2rem;
+}
+.img-container {
+	position: relative;
+	overflow: hidden;
+}
+.bag-btn {
+	position: absolute;
+	top: 70%;
+	right: 0;
+	background: var(--primaryColor);
+	border: none;
+	text-transform: uppercase;
+	padding: 0.5rem 0.75rem;
+	letter-spacing: var(--mainSpacing);
+	font-weight: bold;
+	transition: var(--mainTransition);
+	transform: translateX(101%);
+	cursor: pointer;
+}
+.bag-btn:hover {
+	color: var(--mainWhite);
+}
+.fa-shopping-cart {
+	margin-right: 0.5rem;
+}
+.img-container:hover .bag-btn {
+	transform: translateX(0);
+}
+.product-img {
+	display: block;
+	width: 100%;
+	min-height: 12rem;
+	transition: var(--mainTransition);
+}
+.img-container:hover .product-img {
+	opacity: 0.5;
+}
+
+.product h3 {
+	text-transform: capitalize;
+	font-size: 1.1rem;
+	margin-top: 1rem;
+	letter-spacing: var(--mainSpacing);
+	text-align: center;
+}
+
+.products h4 {
+	margin-top: 0.7rem;
+	letter-spacing: var(--mainSpacing);
+	color: #22669e;
+	text-align: center;
+}
+
+/* ---------------End of Products ---------------- */
+/* --------------- Cart ---------------- */
+.cart-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	transition: var(--mainTransition);
+	background: rgba(175, 242, 247, 0.5);
+	z-index: 2;
+	visibility: hidden;
+}
+.containerCart {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 3rem;
+}
+.cart {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+	z-index: 3;
+	background: url(./images/hero-smll.jpeg) center/cover no-repeat;
+	padding: 1.5rem;
+	transition: var(--mainTransition);
+	transform: translateX(100%);
+}
+.showCart {
+	transform: translateX(0);
+}
+.transparentBcg {
+	visibility: visible;
+}
+@media screen and (min-width: 768px) {
+	.cart {
+		width: 30vw;
+		min-width: 450px;
+	}
+}
+
+.close-cart {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	color: #90a4ae;
+	font-size: 1.7rem;
+	cursor: pointer;
+}
+.cart h2 {
+	font-family: 'Vibes', cursive;
+	text-transform: capitalize;
+	text-align: center;
+	letter-spacing: var(--mainSpacing);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #cfd8dc;
+}
+/*---------- Cart Item -------------------- */
+.cart-item {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	grid-column-gap: 1.5rem;
+	margin: 1.5rem 0;
+}
+.cart-item img {
+	width: 75px;
+	height: 75px;
+}
+.cart-item h4 {
+	color: var(--secondaryColor);
+	font-size: 0.85rem;
+	text-transform: capitalize;
+	letter-spacing: var(--mainSpacing);
+}
+.cart-item h5 {
+	color: var(--mainGrey);
+	margin: 0.5rem 0;
+	letter-spacing: var(--mainSpacing);
+}
+.item-amount {
+	text-align: center;
+	color: var(--mainGrey);
+}
+.remove-item {
+	color: #f5f5f5;
+	cursor: pointer;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+	color: var(--primaryColor);
+	cursor: pointer;
+}
+/*---------- End of Cart Item -------------------- */
+
+.cart-footer {
+	letter-spacing: var(--mainSpacing);
+	text-align: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+.cart-footer h3 {
+	color: #cfd8dc;
+	text-transform: capitalize;
+	margin-bottom: 1rem;
+}
+.cart-total {
+	color: var(--mainWhite);
+}
+.pay-btn {
+	width: 12rem;
+	padding: .7rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+	font-size: .8rem;
+	background: #81c784;
+	color: var(--mainWhite);
+	transition: all .2s ease-in;
+	cursor: pointer;
+	outline: 0;
+}
+.clear-btn {
+	width: 8rem;
+	padding: .4rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	letter-spacing: var(--mainSpacing);
+	font-size: .6rem;
+	background: transparent;
+	color: var(--mainWhite);
+	transition: all .2s ease-in;
+	cursor: pointer;
+}
+.clear-btn:hover {
+	background-color: #222;
+}
+.pay-btn:hover {
+	color: #fff;
+	background-color: #16aa1d;
+}
+.pay-btn:focus {
+	border: #81c784 solid 2px;
+}
+.hide {
+	visibility: hidden;
+}
+
+/* --------------- End of Cart ---------------- */

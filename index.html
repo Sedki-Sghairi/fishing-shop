@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>barberousse</title>
+  
+    <script src="https://kit.fontawesome.com/8cefed5696.js" crossorigin="anonymous"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100&family=Vibes&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-center">
+            <button class="nav-icon" id="navicon">
+                <i class="fas fa-bars"></i>
+            </button>
+            <img src="./images/logo.png" alt="logo">
+            <div class="cart-btn" id="cart-btn">
+                <span class="nav-icon">
+                    <i class="fas fa-cart-plus"></i>
+                </span>
+                <div class="cart-items">0</div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="banner">
+            <h1 class="banner-title">barberousse</h1>
+            <ul class="links">
+                <li>
+                  <a href="#home" class="banner-btn">spinning</a>
+                </li>
+                <li>
+                  <a href="#about" class="banner-btn">outlet</a>
+                </li>
+                <li>
+                  <a href="#services" class="banner-btn">anglaise</a>
+                </li>
+                <li>
+                  <a href="#tours" class="banner-btn">nos marques</a>
+                </li>
+              </ul>
+        </div>
+    </header>
+    <section class="products">
+        <div class="section-title">
+            <h2>all products</h2>
+        </div>
+        <div class="products-center">
+          
+        </div>
+        <div class="cart-overlay" id="cartOverlay">
+           <div class="cart" id="cart">
+                <span class="close-cart" id="caloseCartBtn">
+                    <i class="fas fa-chevron-circle-left"></i>
+                </span>
+                <h2>your cart</h2>
+                <div class="containerCart">
+                    <div class="cart-content"></div>
+                </div>
+                <div class="cart-footer">
+                        <div><h3 id="txt-total"></h3></div>
+                        <div><button class=" clear-btn" id="clear-btn">Clear cart</button></div>
+                        <div><button class=" pay-btn">Pay online</button></div>
+                        <div><button class=" pay-btn">Cash on delivery</button></div>
+                </div>
+           </div>
+           </div>
+        </div>
+       
+        
+    </section>
+    <!-- contentful -->
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script src ='app.js'></script>
+</body>
+</html>
