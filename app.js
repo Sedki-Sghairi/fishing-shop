@@ -7,7 +7,7 @@ const client = contentful.createClient({
 
 const cartBtn = document.getElementById('cart-btn');
 const hero = document.getElementById('hero');
-const logo = document.getElementById('logo');
+// const logo = document.getElementById('logo');
 const txt = document.getElementById('txt-total');
 const closeCartBtn = document.getElementById('caloseCartBtn');
 const cartDOM = document.getElementById('cart');
@@ -19,7 +19,36 @@ const productDOM = document.querySelector('.products-center');
 const toggle = document.getElementById('navicon');
 const navBar = document.getElementById('navbar');
 const links = document.querySelector('.links');
+// smooth scroll (untill safari support scroll-behavior:smooth)
 
+(function() {
+	scrollTo();
+})();
+
+function scrollTo() {
+	const links = document.querySelectorAll('.scroll');
+	links.forEach((each) => (each.onclick = scrollAnchors));
+}
+
+function scrollAnchors(e, respond = null) {
+	const distanceToTop = (el) => Math.floor(el.getBoundingClientRect().top);
+	e.preventDefault();
+	var targetID = respond ? respond.getAttribute('href') : this.getAttribute('href');
+	const targetAnchor = document.querySelector(targetID);
+	if (!targetAnchor) return;
+	const originalTop = distanceToTop(targetAnchor);
+	window.scrollBy({ top: originalTop, left: 0, behavior: 'smooth' });
+	const checkIfDone = setInterval(function() {
+		const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+		if (distanceToTop(targetAnchor) === 0 || atBottom) {
+			targetAnchor.tabIndex = '-1';
+			targetAnchor.focus();
+			window.history.pushState('', '', targetID);
+			clearInterval(checkIfDone);
+		}
+	}, 100);
+}
+// get client-width
 function dw_getWindowDims() {
 	var doc = document,
 		w = window;
