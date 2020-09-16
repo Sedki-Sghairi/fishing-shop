@@ -67,7 +67,6 @@ a {
 	transition: all .2s ease;
 }
 .links li a:hover {
-	border-bottom: #f57f17 solid 2px;
 	color: #f57f17;
 	transform: translateX(2%);
 }
@@ -85,10 +84,11 @@ a {
 .cart-btn {
 	color: #f57f17;
 	width: 3rem;
-	position: absolute;
+	position: fixed;
 	top: 8px;
 	right: 18px;
 	cursor: pointer;
+	z-index: 2;
 }
 
 .nav-icon:hover,
@@ -112,8 +112,10 @@ a {
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	transition: var(--mainTransition);
 }
 .banner {
+	max-width: 350px;
 	position: relative;
 	text-align: center;
 	background: rgba(3, 3, 3, 0.6);
@@ -235,11 +237,9 @@ a {
 	min-height: 12rem;
 	transition: var(--mainTransition);
 }
+.curtain,
 .img-container:hover .product-img {
 	opacity: 0.5;
-}
-.curtain {
-	opacity: .5;
 }
 
 .product h3 {
@@ -266,7 +266,7 @@ a {
 	width: 100%;
 	height: 100%;
 	transition: var(--mainTransition);
-	z-index: 2;
+	z-index: 3;
 	visibility: hidden;
 }
 .containerCart {
@@ -291,6 +291,23 @@ a {
 }
 .transparentBcg {
 	visibility: visible;
+}
+.up {
+	position: sticky;
+	top: 10px;
+	left: 10px;
+	font-size: 1.3rem;
+	background-color: #f57f17;
+	border: #043d6b solid 1px;
+	z-index: 1;
+	outline: 0;
+	transition: var(--mainTransition);
+}
+.up:hover {
+	transform: scale(1.1);
+}
+.up:focus {
+	background-color: ;
 }
 
 @media screen and (min-width: 768px) {
