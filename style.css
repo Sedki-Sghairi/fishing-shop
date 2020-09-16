@@ -42,7 +42,7 @@ a {
 	transition: var(--mainTransition);
 }
 .show {
-	height: 70vh;
+	height: 80vh;
 }
 .links {
 	width: 80%;
@@ -134,6 +134,7 @@ a {
 	border: 2px solid #f57f17;
 	border-radius: var(--radius);
 }
+
 .banner-title {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 3rem;
@@ -371,6 +372,11 @@ a {
 	}
 	.nav-icon {
 		visibility: hidden;
+	}
+	#logo {
+		position: absolute;
+		top: 0;
+		left: 5px;
 	}
 }
 
