@@ -128,15 +128,12 @@ a {
 	-o-transition: var(--mainTransition);
 	transition: var(--mainTransition);
 }
-/* #logo {
-	position: absolute;
-	left: 6px;
-	width: 178px;
-	height: 59px;
+#logo {
+	width: 60px;
+	height: 60px;
 	border: 2px solid #f57f17;
 	border-radius: var(--radius);
-	display: none;
-} */
+}
 .banner-title {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 3rem;
@@ -375,9 +372,6 @@ a {
 	.nav-icon {
 		visibility: hidden;
 	}
-	/* #logo {
-		display: block;
-	} */
 }
 
 .close-cart {
