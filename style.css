@@ -3,12 +3,16 @@
 :root {
 	--primaryColor: #90caf9;
 	--secondaryColor: #bbdefb;
-	--bgColor: #eceff1;
+	--bgColor: #c0e1f7;
 	--mainWhite: rgb(248, 247, 247);
 	--mainBlack: #222;
 	--mainGrey: #ececec;
 	--mainSpacing: 0.1rem;
 	--mainTransition: all 0.3s linear;
+	--radius: 0.5rem;
+}
+html {
+	scroll-behavior: smooth;
 }
 * {
 	margin: 0;
@@ -28,54 +32,74 @@ a {
 }
 /* --------------- Navbar ---------------- */
 .navbar {
-	position: sticky;
-	top: 0;
+	position: relative;
 	height: 60px;
 	width: 100%;
+	background: #e3f2fd;
 	display: flex;
-	align-items: center;
-	background: #fff;
-	z-index: 1;
-}
-.links {
-	position: absolute;
-	top: 10rem;
-	left: -200%;
-	transition: all .6s linear;
+	justify-content: center;
+	justify-items: center;
+	transition: var(--mainTransition);
 }
 .show {
-	transform: translateX(280%);
+	height: 70vh;
 }
-#navicon {
-	color: #22669e;
+.links {
+	width: 80%;
+	display: grid;
+	grid-auto-rows: 70px;
+	justify-content: center;
+	visibility: hidden;
+}
+.links li {
+	margin-top: 4rem;
+	width: 100%;
+	text-align: center;
+}
+.links li a {
+	font-family: "Lato", sans-serif;
+	letter-spacing: .25rem;
+	display: block;
+	font-size: 1.2rem;
+	padding: .5rem;
+	text-transform: capitalize;
+	color: #263238;
+	transition: all .2s ease;
+}
+.links li a:hover {
+	border-bottom: #f57f17 solid 2px;
+	color: #f57f17;
+	transform: translateX(2%);
+}
+.nav-icon,
+.cart-plus {
+	display: block;
+	position: absolute;
+	left: 15px;
+	top: 6px;
+	font-size: 1.5rem;
+	color: #f57f17;
+	transition: var(--mainTransition);
 }
 
-.navbar-center {
-	width: 100%;
-	max-width: 1170px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 1.5rem;
-}
-.navbar-center img {
-	height: 60px;
-}
-.nav-icon {
-	font-size: 1.5rem;
-}
-.nav-icon:hover {
-	transform: rotate(30deg);
-	transition: all .3s linear;
-}
 .cart-btn {
-	position: relative;
+	color: #f57f17;
+	width: 3rem;
+	position: absolute;
+	top: 8px;
+	right: 18px;
 	cursor: pointer;
 }
+
+.nav-icon:hover,
+.cart-plus:hover {
+	transform: scale(1.2);
+	transition: var(--mainTransition);
+}
+
 .cart-items {
 	position: absolute;
-	top: -8px;
+	top: -4px;
 	right: -8px;
 	background: #1565c0;
 	padding: 0 5px;
@@ -84,7 +108,7 @@ a {
 }
 .hero {
 	min-height: calc(100vh - 60px);
-	background: url("./images/hero-bg.png") center/cover no-repeat;
+	background: url("./images/pexels-photo-3699434.jpeg") center/cover no-repeat;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
@@ -92,38 +116,68 @@ a {
 .banner {
 	position: relative;
 	text-align: center;
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(3, 3, 3, 0.6);
 	display: block;
 	padding: 2rem;
+	margin-top: 4rem;
 	transition: var(--mainTransition);
+}
+#logo {
+	position: absolute;
+	left: 6px;
+	width: 178px;
+	height: 59px;
+	border: 2px solid #f57f17;
+	border-radius: var(--radius);
+	display: none;
 }
 .banner-title {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 3rem;
 	text-transform: uppercase;
 	letter-spacing: var(--mainSpacing);
+	color: var(--mainGrey);
 }
-
-a.banner-btn {
-	display: block;
-	width: 300px;
-	font-family: 'Vibes', cursive;
+.title h2 {
+	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: var(--mainSpacing);
-	font-size: 2rem;
-	background: var(--primaryColor);
-	color: var(--mainBlack);
-	border: 1px solid var(--primaryColor);
-	transition: var(--mainTransition);
-	cursor: pointer;
 }
-.banner-btn:hover {
-	background: rgba(175, 242, 247, 0.8);
-	color: #185485;
+.title span {
+	color: #bf360c;
 }
-/* --------------- End of Hero ---------------- */
-/* --------------- Products ---------------- */
+.section {
+	padding-bottom: 5rem;
+	min-height: 100vh;
+}
 
+#roux {
+	color: #bf360c;
+	font-family: 'Vibes', cursive;
+}
+.btn {
+	text-transform: uppercase;
+	background: transparent;
+	color: #222;
+	padding: 0.375rem 0.75rem;
+	letter-spacing: var(--mainSpacing);
+	display: inline-block;
+	transition: var(--mainTransition);
+	font-size: 0.875rem;
+	border: 2px solid #222;
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	border-radius: var(--radius);
+}
+.btn-white {
+	color: #fff;
+	border-color: #fff;
+	border-radius: 0;
+	padding: 0.5rem 1rem;
+}
+.btn:hover {
+	background-color: #fff;
+	color: hsla(182, 63%, 54%);
+}
 .products {
 	padding: 4rem 0;
 	text-align: center;
@@ -167,6 +221,7 @@ a.banner-btn {
 }
 .bag-btn:hover {
 	color: var(--mainWhite);
+	background-color: #0b52a3;
 }
 .fa-shopping-cart {
 	margin-right: 0.5rem;
@@ -182,6 +237,9 @@ a.banner-btn {
 }
 .img-container:hover .product-img {
 	opacity: 0.5;
+}
+.curtain {
+	opacity: .5;
 }
 
 .product h3 {
@@ -208,12 +266,11 @@ a.banner-btn {
 	width: 100%;
 	height: 100%;
 	transition: var(--mainTransition);
-	background: rgba(175, 242, 247, 0.5);
 	z-index: 2;
 	visibility: hidden;
 }
 .containerCart {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 	padding: 3rem;
 }
 .cart {
@@ -224,7 +281,7 @@ a.banner-btn {
 	height: 100%;
 	overflow: scroll;
 	z-index: 3;
-	background: url(./images/hero-smll.jpeg) center/cover no-repeat;
+	background: url(./images/pexl.jpeg) center/cover no-repeat;
 	padding: 1.5rem;
 	transition: var(--mainTransition);
 	transform: translateX(100%);
@@ -235,18 +292,43 @@ a.banner-btn {
 .transparentBcg {
 	visibility: visible;
 }
+
 @media screen and (min-width: 768px) {
 	.cart {
 		width: 30vw;
 		min-width: 450px;
 	}
+	.navbar {
+		height: 60px;
+	}
+	.links {
+		display: flex;
+		visibility: visible;
+	}
+	.links li {
+		width: 150px;
+		margin: 0 .1rem;
+	}
+	.links li a {
+		padding: .5rem .1rem;
+		margin: .5rem .1rem;
+	}
+	.nav-icon {
+		cursor: not-allowed;
+	}
+	.nav-icon {
+		visibility: hidden;
+	}
+	#logo {
+		display: block;
+	}
 }
 
 .close-cart {
 	position: absolute;
-	top: 2px;
-	left: 2px;
-	color: #90a4ae;
+	top: 22px;
+	left: 25px;
+	color: #c1dce9;
 	font-size: 1.7rem;
 	cursor: pointer;
 }
@@ -255,7 +337,7 @@ a.banner-btn {
 	text-transform: capitalize;
 	text-align: center;
 	letter-spacing: var(--mainSpacing);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.7);
 	color: #cfd8dc;
 }
 /*---------- Cart Item -------------------- */
@@ -286,7 +368,7 @@ a.banner-btn {
 	color: var(--mainGrey);
 }
 .remove-item {
-	color: #f5f5f5;
+	color: #d32f2f;
 	cursor: pointer;
 }
 .fa-chevron-up,
@@ -299,7 +381,7 @@ a.banner-btn {
 .cart-footer {
 	letter-spacing: var(--mainSpacing);
 	text-align: center;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.7);
 }
 .cart-footer h3 {
 	color: #cfd8dc;
@@ -316,11 +398,12 @@ a.banner-btn {
 	text-transform: uppercase;
 	letter-spacing: var(--mainSpacing);
 	font-size: .8rem;
-	background: #81c784;
-	color: var(--mainWhite);
+	background: #2cc433;
+	border: transparent;
+	color: #ebebeb;
 	transition: all .2s ease-in;
 	cursor: pointer;
-	outline: 0;
+	outline: none;
 }
 .clear-btn {
 	width: 8rem;
@@ -329,23 +412,34 @@ a.banner-btn {
 	text-transform: uppercase;
 	letter-spacing: var(--mainSpacing);
 	font-size: .6rem;
-	background: transparent;
-	color: var(--mainWhite);
+	border: transparent;
+	background: var(--mainGrey);
+	color: #b71c1c;
 	transition: all .2s ease-in;
 	cursor: pointer;
 }
 .clear-btn:hover {
-	background-color: #222;
+	background-color: #b71c1c;
+	color: var(--mainGrey);
 }
 .pay-btn:hover {
 	color: #fff;
 	background-color: #16aa1d;
 }
 .pay-btn:focus {
-	border: #81c784 solid 2px;
+	background-color: #118316;
 }
 .hide {
-	visibility: hidden;
+	display: none;
 }
-
-/* --------------- End of Cart ---------------- */
+footer {
+	background: #455a64;
+	padding: 3rem 1rem;
+}
+footer p {
+	color: var(--mainWhite);
+	text-align: center;
+	text-transform: capitalize;
+	letter-spacing: var(--mainSpacing);
+	margin-bottom: 0;
+}

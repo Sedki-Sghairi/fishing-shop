@@ -6,6 +6,8 @@ const client = contentful.createClient({
 });
 
 const cartBtn = document.getElementById('cart-btn');
+const hero = document.getElementById('hero');
+const logo = document.getElementById('logo');
 const txt = document.getElementById('txt-total');
 const closeCartBtn = document.getElementById('caloseCartBtn');
 const cartDOM = document.getElementById('cart');
@@ -15,11 +17,33 @@ const cartContent = document.querySelector('.cart-content');
 const cartItems = document.querySelector('.cart-items');
 const productDOM = document.querySelector('.products-center');
 const toggle = document.getElementById('navicon');
+const navBar = document.getElementById('navbar');
 const links = document.querySelector('.links');
 
-toggle.addEventListener('click', function() {
-	links.classList.toggle('show');
-});
+function dw_getWindowDims() {
+	var doc = document,
+		w = window;
+	var docEl = doc.compatMode && doc.compatMode === 'CSS1Compat' ? doc.documentElement : doc.body;
+
+	var width = docEl.clientWidth;
+	var height = docEl.clientHeight;
+
+	// mobile zoomed in?
+	if (w.innerWidth && width > w.innerWidth) {
+		width = w.innerWidth;
+		height = w.innerHeight;
+	}
+
+	return { width: width, height: height };
+}
+var foo = dw_getWindowDims();
+
+if (foo.width < 768) {
+	toggle.addEventListener('click', function() {
+		navBar.classList.toggle('show');
+		links.classList.toggle('transparentBcg');
+	});
+}
 
 let cart = [];
 let buttonsDOM = [];
@@ -125,10 +149,12 @@ class UI {
 	showCart() {
 		cartOverlay.classList.add('transparentBcg');
 		cartDOM.classList.add('showCart');
+		hero.classList.add('curtain');
 	}
 	hideCart() {
 		cartOverlay.classList.remove('transparentBcg');
 		cartDOM.classList.remove('showCart');
+		hero.classList.remove('curtain');
 	}
 	setUpApp() {
 		cart = Storage.getCart();

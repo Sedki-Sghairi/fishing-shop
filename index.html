@@ -12,38 +12,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-center">
+    <nav class="navbar" id="navbar">
+            
             <button class="nav-icon" id="navicon">
                 <i class="fas fa-bars"></i>
             </button>
-            <img src="./images/logo.png" alt="logo">
-            <div class="cart-btn" id="cart-btn">
-                <span class="nav-icon">
-                    <i class="fas fa-cart-plus"></i>
-                </span>
-                <div class="cart-items">0</div>
-            </div>
-        </div>
-        </div>
-    </nav>
-    <header class="hero">
-        <div class="banner">
-            <h1 class="banner-title">barberousse</h1>
+            <img src="./images/logo.png" id="logo" alt="logo" />
             <ul class="links">
                 <li>
-                  <a href="#home" class="banner-btn">spinning</a>
+                  <a href="#" class="banner-btn">spinning</a>
                 </li>
                 <li>
-                  <a href="#about" class="banner-btn">outlet</a>
+                  <a href="#" class="banner-btn">outlet</a>
                 </li>
                 <li>
-                  <a href="#services" class="banner-btn">anglaise</a>
+                  <a href="#" class="banner-btn">anglaise</a>
                 </li>
                 <li>
-                  <a href="#tours" class="banner-btn">nos marques</a>
+                  <a href="#" class="banner-btn">marques</a>
+                </li>
+                <li>
+                  <a href="#contact" class="banner-btn">contact</a>
                 </li>
               </ul>
+            <div class="cart-btn" id="cart-btn">
+                <span class="cart-plus">
+                    <i class="fas fa-cart-plus"></i>
+                </span>
+                <div class="cart-items"></div>
+            </div>
+    </nav>
+    <header class="hero" id="hero">
+        <div class="banner">
+            <h1 class="banner-title">barbe<span id="roux">rousse</span></h1>
+            <a href="#latest" class="btn btn-white" id="scroll">explore latest products</a>
         </div>
     </header>
     <section class="products">
@@ -74,6 +76,24 @@
        
         
     </section>
+    <section id="latest" class="section">
+        <div class="title">
+          <h2>featured <span>products</span></h2>
+        </div>
+      </section>
+    <section id="contact" class="section">
+        <div class="title">
+          <h2>contact<span>us</span></h2>
+        </div>
+      </section>
+      <footer class="footer">
+        <p>
+          copyright &copy; bla bla bla . Barberousse 980000003
+          . all rights reserved. Support number: <i class="fas fa-phone-square"></i> 043888888
+        </p>
+        
+      </footer>
+     
     <!-- contentful -->
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
     <script src ='app.js'></script>
