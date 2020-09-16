@@ -19,31 +19,28 @@ const productDOM = document.querySelector('.products-center');
 const toggle = document.getElementById('navicon');
 const navBar = document.getElementById('navbar');
 const links = document.querySelector('.links');
-// get client-width
-function dw_getWindowDims() {
-	var doc = document,
-		w = window;
-	var docEl = doc.compatMode && doc.compatMode === 'CSS1Compat' ? doc.documentElement : doc.body;
+// // get client-width
+// function dw_getWindowDims() {
+// 	var doc = document,
+// 		w = window;
+// 	var docEl = doc.compatMode && doc.compatMode === 'CSS1Compat' ? doc.documentElement : doc.body;
 
-	var width = docEl.clientWidth;
-	var height = docEl.clientHeight;
+// 	var width = docEl.clientWidth;
+// 	var height = docEl.clientHeight;
 
-	// mobile zoomed in?
-	if (w.innerWidth && width > w.innerWidth) {
-		width = w.innerWidth;
-		height = w.innerHeight;
-	}
+// 	// mobile zoomed in?
+// 	if (w.innerWidth && width > w.innerWidth) {
+// 		width = w.innerWidth;
+// 		height = w.innerHeight;
+// 	}
 
-	return { width: width, height: height };
-}
-var foo = dw_getWindowDims();
+// 	return { width: width, height: height };
+// }
+// var foo = dw_getWindowDims();
 
-if (foo.width < 768) {
-	toggle.addEventListener('click', function() {
-		navBar.classList.toggle('show');
-		links.classList.toggle('transparentBcg');
-	});
-}
+toggle.addEventListener('click', function() {
+	navBar.classList.toggle('show');
+});
 
 let cart = [];
 let buttonsDOM = [];

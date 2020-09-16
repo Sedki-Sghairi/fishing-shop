@@ -30,7 +30,7 @@ ul {
 a {
 	text-decoration: none;
 }
-/* --------------- Navbar ---------------- */
+
 .navbar {
 	position: relative;
 	height: 60px;
@@ -40,28 +40,28 @@ a {
 	justify-content: center;
 	justify-items: center;
 	transition: var(--mainTransition);
+	overflow: hidden;
 }
 .show {
-	height: 80vh;
+	height: 70vh;
 }
 .links {
 	width: 80%;
 	display: grid;
 	grid-auto-rows: 70px;
 	justify-content: center;
-	visibility: hidden;
+	margin-top: 5rem;
 }
 .links li {
-	margin-top: 4rem;
 	width: 100%;
 	text-align: center;
 }
 .links li a {
+	display: inline-block;
 	font-family: "Lato", sans-serif;
 	letter-spacing: .25rem;
-	display: block;
-	font-size: 1.2rem;
-	padding: .5rem;
+	font-size: 1.1rem;
+	padding: 0 .5rem;
 	text-transform: capitalize;
 	color: #263238;
 	transition: var(--mainTransition);
@@ -76,7 +76,7 @@ a {
 	position: absolute;
 	left: 15px;
 	top: 6px;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	color: #f57f17;
 	transition: var(--mainTransition);
 }
@@ -108,6 +108,7 @@ a {
 }
 .hero {
 	min-height: calc(100vh - 60px);
+	width: 100%;
 	background: url("./images/pexels-photo-3699434.jpeg") center/cover no-repeat;
 	display: flex;
 	align-items: flex-start;
@@ -122,13 +123,11 @@ a {
 	display: block;
 	padding: 2rem;
 	margin-top: 4rem;
-	-webkit-transition: var(--mainTransition);
-	-ms-transition: var(--mainTransition);
-	-moz-transition: var(--mainTransition);
-	-o-transition: var(--mainTransition);
 	transition: var(--mainTransition);
 }
 #logo {
+	position: absolute;
+	left: 43%;
 	width: 60px;
 	height: 60px;
 	border: 2px solid #f57f17;
@@ -259,8 +258,6 @@ a {
 	text-align: center;
 }
 
-/* ---------------End of Products ---------------- */
-/* --------------- Cart ---------------- */
 .cart-overlay {
 	position: fixed;
 	top: 0;
@@ -299,8 +296,8 @@ a {
 	display: block;
 	display: grid;
 	place-items: center;
-	width: 1.5rem;
-	height: 1.5rem;
+	width: 1.8rem;
+	height: 1.8rem;
 	position: sticky;
 	top: 10px;
 	left: 10px;
@@ -343,8 +340,19 @@ a {
 .up:hover {
 	transform: scale(1.1);
 }
-.up:focus {
-	background-color: ;
+
+@media screen and (min-width: 400px) {
+	.links {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: 'h  h  h' 'h  h  h';
+	}
+	.banner-btn {
+		grid-area: h;
+	}
+	.show {
+		height: 50vh;
+	}
 }
 
 @media screen and (min-width: 768px) {
@@ -356,19 +364,15 @@ a {
 		height: 60px;
 	}
 	.links {
+		max-width: 900px;
+		padding: .4rem;
+		position: absolute;
+		top: -4rem;
 		display: flex;
-		visibility: visible;
 	}
 	.links li {
 		width: 150px;
-		margin: 0 .1rem;
-	}
-	.links li a {
-		padding: .5rem .1rem;
-		margin: .5rem .1rem;
-	}
-	.nav-icon {
-		cursor: not-allowed;
+		margin-top: 0;
 	}
 	.nav-icon {
 		visibility: hidden;
@@ -396,7 +400,7 @@ a {
 	background-color: rgba(0, 0, 0, 0.7);
 	color: #cfd8dc;
 }
-/*---------- Cart Item -------------------- */
+
 .cart-item {
 	display: grid;
 	align-items: center;
@@ -432,7 +436,6 @@ a {
 	color: var(--primaryColor);
 	cursor: pointer;
 }
-/*---------- End of Cart Item -------------------- */
 
 .cart-footer {
 	letter-spacing: var(--mainSpacing);
