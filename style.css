@@ -10,6 +10,12 @@
 	--mainSpacing: 0.1rem;
 	--radius: 0.5rem;
 	--mainTransition: all 0.3s linear;
+	--shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	--clr-grey-1: hsl(209, 61%, 16%);
+	--clr-grey-2: hsl(211, 39%, 23%);
+	--clr-grey-3: hsl(209, 34%, 30%);
+	--clr-grey-4: hsl(209, 28%, 39%);
 }
 html {
 	scroll-behavior: smooth;
@@ -145,6 +151,11 @@ a {
 	text-align: center;
 	text-transform: uppercase;
 }
+.title {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+}
 .title span {
 	color: #bf360c;
 }
@@ -182,19 +193,26 @@ a {
 	color: hsla(182, 63%, 54%);
 }
 .products {
-	padding: 4rem 0;
+	padding-top: 1.2rem;
 	text-align: center;
 	color: #37474f;
 	text-transform: capitalize;
 }
-.section-title h2 {
-	font-family: 'Vibes', cursive;
-	text-align: center;
-	font-size: 2.5rem;
-	margin-bottom: 5rem;
-	text-transform: capitalize;
-	letter-spacing: var(--mainSpacing);
+.pagination {
+	display: block;
+	margin-top: 2rem;
 }
+.pagination a {
+	color: black;
+	text-decoration: none;
+	padding: .8rem;
+}
+.pagination a:hover {
+	background-color: #f57f17;
+	color: var(--bgColor);
+	border-radius: var(--radius);
+}
+
 .products-center {
 	width: 90vw;
 	margin: 0 auto;
@@ -202,8 +220,9 @@ a {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	grid-column-gap: 1.5rem;
-	grid-row-gap: 2rem;
+	grid-row-gap: .5rem;
 }
+
 .img-container {
 	position: relative;
 	overflow: hidden;
@@ -493,6 +512,46 @@ a {
 }
 .hide {
 	display: none;
+}
+.info {
+	margin: 0 auto;
+	height: 80vh;
+	width: 90%;
+	box-shadow: var(--shadow);
+	color: var(--clr-grey-3);
+	background: #fff;
+	text-align: left;
+	max-width: 800px;
+	padding: 1rem;
+}
+
+.fab {
+	color: #0b52a3;
+	font-size: 1.8em;
+	cursor: pointer;
+}
+.fab:hover {
+	color: #5f9be0;
+}
+.fab:active {
+	color: #072950;
+}
+.cadre {
+	width: 100%;
+	display: grid;
+	box-shadow: var(--light-shadow);
+	border: var(--clr-grey-4) solid 1px;
+	padding: 1rem;
+}
+.cadre iframe {
+	width: 100%;
+	border: 0;
+}
+legend {
+	background-color: #fff;
+	letter-spacing: .2rem;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
 }
 footer {
 	background: #455a64;

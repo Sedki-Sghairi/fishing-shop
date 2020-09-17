@@ -9,13 +9,18 @@ const cartBtn = document.getElementById('cart-btn');
 const hero = document.getElementById('hero');
 // const logo = document.getElementById('logo');
 const txt = document.getElementById('txt-total');
+const outlet = document.getElementById('outlet');
+const latest = document.getElementById('latest');
+const wear = document.getElementById('wear');
+const surfcasting = document.getElementById('surfcasting');
+const spinning = document.getElementById('spinning');
+const anglaise = document.getElementById('anglaise');
 const closeCartBtn = document.getElementById('caloseCartBtn');
 const cartDOM = document.getElementById('cart');
 const cartOverlay = document.getElementById('cartOverlay');
 const clearBtn = document.getElementById('clear-btn');
 const cartContent = document.querySelector('.cart-content');
 const cartItems = document.querySelector('.cart-items');
-const productDOM = document.querySelector('.products-center');
 const toggle = document.getElementById('navicon');
 const navBar = document.getElementById('navbar');
 const links = document.querySelector('.links');
@@ -57,10 +62,10 @@ class Products {
 			// let products = data.items;
 			let products = contentful.items;
 			products = products.map((item) => {
-				const { title, price } = item.fields;
+				const { title, category, price } = item.fields;
 				const { id } = item.sys;
 				const image = item.fields.image.fields.file.url;
-				return { title, price, id, image };
+				return { title, category, price, id, image };
 			});
 			return products;
 		} catch (error) {
@@ -71,9 +76,15 @@ class Products {
 // display products
 class UI {
 	displayProducts(products) {
-		let result = '';
+		let result1 = '';
+		let result2 = '';
+		let result3 = '';
+		let result4 = '';
+		let result5 = '';
+		let result6 = '';
 		products.forEach((product) => {
-			result += ` <article class="products">
+			if (product.category === 'spinning') {
+				result5 += ` <article class="products">
 			<div class="img-container">
 				<img src=${product.image} alt="a product" class="product-img">
 				<button class="bag-btn" data-id=${product.id}>
@@ -83,7 +94,68 @@ class UI {
 			<h3>${product.title}</h3>
 			<h4>${product.price} TND</h4>
 		</article>`;
-			productDOM.innerHTML = result;
+			} else if (product.category === 'wear') {
+				result2 += ` <article class="products">
+			<div class="img-container">
+				<img src=${product.image} alt="a product" class="product-img">
+				<button class="bag-btn" data-id=${product.id}>
+					<i class="fas fa-shopping-cart">add to cart</i>
+				</button>
+			</div>
+			<h3>${product.title}</h3>
+			<h4>${product.price} TND</h4>
+		</article>`;
+			} else if (product.category === 'anglaise') {
+				result3 += ` <article class="products">
+			<div class="img-container">
+				<img src=${product.image} alt="a product" class="product-img">
+				<button class="bag-btn" data-id=${product.id}>
+					<i class="fas fa-shopping-cart">add to cart</i>
+				</button>
+			</div>
+			<h3>${product.title}</h3>
+			<h4>${product.price} TND</h4>
+		</article>`;
+			} else if (product.category === 'outlet') {
+				result4 += ` <article class="products">
+			<div class="img-container">
+				<img src=${product.image} alt="a product" class="product-img">
+				<button class="bag-btn" data-id=${product.id}>
+					<i class="fas fa-shopping-cart">add to cart</i>
+				</button>
+			</div>
+			<h3>${product.title}</h3>
+			<h4>${product.price} TND</h4>
+		</article>`;
+			} else if (product.category === 'surfcasting') {
+				result6 += ` <article class="products">
+			<div class="img-container">
+				<img src=${product.image} alt="a product" class="product-img">
+				<button class="bag-btn" data-id=${product.id}>
+					<i class="fas fa-shopping-cart">add to cart</i>
+				</button>
+			</div>
+			<h3>${product.title}</h3>
+			<h4>${product.price} TND</h4>
+		</article>`;
+			} else {
+				result1 += ` <article class="products">
+			<div class="img-container">
+				<img src=${product.image} alt="a product" class="product-img">
+				<button class="bag-btn" data-id=${product.id}>
+					<i class="fas fa-shopping-cart">add to cart</i>
+				</button>
+			</div>
+			<h3>${product.title}</h3>
+			<h4>${product.price} TND</h4>
+		</article>`;
+			}
+			latest.innerHTML = result1;
+			spinning.innerHTML = result5;
+			wear.innerHTML = result2;
+			anglaise.innerHTML = result3;
+			outlet.innerHTML = result4;
+			surfcasting.innerHTML = result6;
 		});
 	}
 	getBagButtons() {
