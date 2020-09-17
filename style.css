@@ -109,7 +109,7 @@ a {
 .hero {
 	min-height: calc(100vh - 60px);
 	width: 100%;
-	background: url("./images/pexels-photo-3699434.jpeg") center/cover no-repeat;
+	background: url("./images/hero\ phone.png") center/cover no-repeat;
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
@@ -341,7 +341,7 @@ a {
 	transform: scale(1.1);
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 480px) {
 	.links {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -352,6 +352,9 @@ a {
 	}
 	.show {
 		height: 50vh;
+	}
+	.hero {
+		background: url("./images/hero-bg.png") center/cover no-repeat;
 	}
 }
 
@@ -457,7 +460,7 @@ a {
 	text-transform: uppercase;
 	letter-spacing: var(--mainSpacing);
 	font-size: .8rem;
-	background: #2cc433;
+	background: #607d8b;
 	border: transparent;
 	color: #ebebeb;
 	cursor: pointer;
@@ -472,7 +475,7 @@ a {
 	letter-spacing: var(--mainSpacing);
 	font-size: .6rem;
 	border: transparent;
-	background: var(--mainGrey);
+	background: #ffcdd2;
 	color: #b71c1c;
 	cursor: pointer;
 	transition: var(--mainTransition);
