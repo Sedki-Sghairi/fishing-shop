@@ -4,13 +4,14 @@ const client = contentful.createClient({
 	// This is the access token for this space. Normally you get both ID and the token in the Contentful web app
 	accessToken: '_gH1FoTb1mc6hQVpWeenis816TFAWKQWq9Dkx2H3P1s'
 });
-
+const closeAlert = document.getElementById('close-alert');
 const cartBtn = document.getElementById('cart-btn');
 const hero = document.getElementById('hero');
 // const logo = document.getElementById('logo');
 const txt = document.getElementById('txt-total');
 const outlet = document.getElementById('outlet');
 const latest = document.getElementById('latest');
+const alert = document.getElementById('alert');
 const wear = document.getElementById('wear');
 const surfcasting = document.getElementById('surfcasting');
 const spinning = document.getElementById('spinning');
@@ -20,6 +21,7 @@ const cartDOM = document.getElementById('cart');
 const cartOverlay = document.getElementById('cartOverlay');
 const clearBtn = document.getElementById('clear-btn');
 const cartContent = document.querySelector('.cart-content');
+const pay = document.querySelectorAll('.pay-btn');
 const cartItems = document.querySelector('.cart-items');
 const toggle = document.getElementById('navicon');
 const navBar = document.getElementById('navbar');
@@ -219,11 +221,24 @@ class UI {
 		cartOverlay.classList.add('transparentBcg');
 		cartDOM.classList.add('showCart');
 		hero.classList.add('curtain');
+		latest.classList.add('curtain');
+		spinning.classList.add('curtain');
+		wear.classList.add('curtain');
+		anglaise.classList.add('curtain');
+		outlet.classList.add('curtain');
+		surfcasting.classList.add('curtain');
 	}
 	hideCart() {
 		cartOverlay.classList.remove('transparentBcg');
 		cartDOM.classList.remove('showCart');
 		hero.classList.remove('curtain');
+		alert.classList.remove('see');
+		latest.classList.remove('curtain');
+		spinning.classList.remove('curtain');
+		wear.classList.remove('curtain');
+		anglaise.classList.remove('curtain');
+		outlet.classList.remove('curtain');
+		surfcasting.classList.remove('curtain');
 	}
 	setUpApp() {
 		cart = Storage.getCart();
@@ -327,4 +342,12 @@ document.addEventListener('DOMContentLoaded', () => {
 cartBtn.addEventListener('click', function() {
 	let ui = new UI();
 	ui.showCart();
+});
+pay.forEach((btn) => {
+	btn.addEventListener('click', function() {
+		alert.classList.add('see');
+	});
+});
+closeAlert.addEventListener('click', function() {
+	alert.classList.remove('see');
 });
